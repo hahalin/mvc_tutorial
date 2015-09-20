@@ -1,0 +1,35 @@
+﻿@model IEnumerable<MVCPrj1.Models.department>
+
+
+@{
+    ViewBag.Title = "Department";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Department</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create","Department",null,null)
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.departmentName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            (@item.id)@Html.DisplayFor(modelItem => item.departmentName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", "Department", new { id = item.id }, null) |
+           
+            @Html.ActionLink("Delete", "Delete", "Department", new { id = item.id }, null)
+        </td>
+    </tr>
+}
+
+</table>

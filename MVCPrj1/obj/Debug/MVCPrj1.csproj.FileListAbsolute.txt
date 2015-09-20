@@ -4,7 +4,6 @@ F:\aspnetClass\MVCPrj1\MVCPrj1\bin\MVCPrj1.pdb
 F:\aspnetClass\MVCPrj1\MVCPrj1\bin\Antlr3.Runtime.dll
 F:\aspnetClass\MVCPrj1\MVCPrj1\bin\EntityFramework.dll
 F:\aspnetClass\MVCPrj1\MVCPrj1\bin\EntityFramework.SqlServer.dll
-F:\aspnetClass\MVCPrj1\MVCPrj1\bin\Microsoft.AspNet.Identity.Core.dll
 F:\aspnetClass\MVCPrj1\MVCPrj1\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 F:\aspnetClass\MVCPrj1\MVCPrj1\bin\Microsoft.AspNet.Identity.Owin.dll
 F:\aspnetClass\MVCPrj1\MVCPrj1\bin\Microsoft.Owin.dll
@@ -59,7 +58,6 @@ F:\aspnetClass\MVCPrj1\MVCPrj1\bin\zh-Hant\System.Web.WebPages.Deployment.resour
 F:\aspnetClass\MVCPrj1\MVCPrj1\bin\zh-Hant\System.Web.WebPages.Razor.resources.dll
 F:\aspnetClass\MVCPrj1\MVCPrj1\bin\zh-Hant\EntityFramework.resources.dll
 F:\aspnetClass\MVCPrj1\MVCPrj1\bin\zh-Hant\EntityFramework.SqlServer.resources.dll
-F:\aspnetClass\MVCPrj1\MVCPrj1\bin\zh-Hant\Microsoft.AspNet.Identity.Core.resources.dll
 F:\aspnetClass\MVCPrj1\MVCPrj1\bin\zh-Hant\Microsoft.AspNet.Identity.Owin.resources.dll
 F:\aspnetClass\MVCPrj1\MVCPrj1\bin\zh-Hant\Microsoft.AspNet.Identity.EntityFramework.resources.dll
 F:\aspnetClass\MVCPrj1\MVCPrj1\bin\zh-Hant\Microsoft.Owin.resources.dll
@@ -72,3 +70,4 @@ F:\aspnetClass\MVCPrj1\MVCPrj1\bin\zh-Hant\Microsoft.Owin.Security.MicrosoftAcco
 F:\aspnetClass\MVCPrj1\MVCPrj1\obj\Debug\MVCPrj1.csprojResolveAssemblyReference.cache
 F:\aspnetClass\MVCPrj1\MVCPrj1\obj\Debug\MVCPrj1.dll
 F:\aspnetClass\MVCPrj1\MVCPrj1\obj\Debug\MVCPrj1.pdb
+F:\aspnetClass\MVCPrj1\MVCPrj1\bin\Microsoft.AspNet.Identity.Core.dll
