@@ -1,5 +1,5 @@
 ﻿@using MVCPrj1.Models
-@model List<MVCPrj1.Models.department>
+@model IEnumerable<MVCPrj1.Models.department>
 @{
     ViewBag.Title = "Contact";
 }
@@ -16,8 +16,13 @@
     @foreach (var department in Model)
     {
 
-        <li> @Html.ActionLink(department.departmentName, "Index", "Department", new { departmentid = department.id }, new { target = "_blank" }) </li>
-
+        <li> @Html.ActionLink(
+                department.departmentName, 
+                "Detail", 
+                "Department", 
+                new { id = department.id }, 
+                new { target = "_blank" }) 
+        </li>
     }
 </ul>
 

@@ -4,7 +4,7 @@ using System.Collections;
 using Microsoft.Owin;
 using Owin;
 
-//[assembly: OwinStartup(typeof(MVCPrj1.CStartup))]
+[assembly: OwinStartup(typeof(MVCPrj1.CStartup))]
 
 namespace MVCPrj1
 {

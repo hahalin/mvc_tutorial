@@ -34,13 +34,28 @@ namespace MVCPrj1.Controllers
         [HttpGet]
         public ActionResult Edit(string id)
         {
-            SqlHelper hp = new SqlHelper();
-            DataTable tb = hp.Sql2Table("select id,cname from dep where id=" + id);
+            CDbContext dc = new CDbContext();
 
-            department dep = new department();
-            dep.id = tb.Rows[0]["id"].ToString();
-            dep.departmentName = tb.Rows[0]["cname"].ToString();
-            return View(dep);
+            var depobj=dc.departments.Where(a => a.id.Equals(id)).FirstOrDefault();
+            if (depobj !=null)
+            {
+                return View(depobj);
+            }
+            else
+            {
+                ModelState.AddModelError("", "無此部門資料");
+                ViewBag.error = "無此部門資料";
+                return View("Error");
+            }
+
+
+            //SqlHelper hp = new SqlHelper();
+            //DataTable tb = hp.Sql2Table("select id,cname from dep where id=" + id);
+
+            //department dep = new department();
+            //dep.id = tb.Rows[0]["id"].ToString();
+            //dep.departmentName = tb.Rows[0]["cname"].ToString();
+            //return View(dep);
         }
 
         //修改form submit後處理

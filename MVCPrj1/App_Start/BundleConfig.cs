@@ -26,6 +26,17 @@ namespace MVCPrj1
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+
+            //bundles.Add(new StyleBundle("~/theme-admin/dist/css").Include(
+            //    "sb-admin-2.css"));
+
+            //bundles.Add(new StyleBundle("~/theme-admin/bower_components/font-awesome/css").Include(
+            //    "font-awesome.min.css"));
+
+            //bundles.Add(new StyleBundle("~/theme-admin/bower_components/metisMenu/dist").Include(
+            //  "metisMenu.min.css"));
+
         }
     }
 }

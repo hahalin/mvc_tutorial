@@ -67,7 +67,10 @@ F:\aspnetClass\MVCPrj1\MVCPrj1\bin\zh-Hant\Microsoft.Owin.Security.Facebook.reso
 F:\aspnetClass\MVCPrj1\MVCPrj1\bin\zh-Hant\Microsoft.Owin.Security.Google.resources.dll
 F:\aspnetClass\MVCPrj1\MVCPrj1\bin\zh-Hant\Microsoft.Owin.Security.Twitter.resources.dll
 F:\aspnetClass\MVCPrj1\MVCPrj1\bin\zh-Hant\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
-F:\aspnetClass\MVCPrj1\MVCPrj1\obj\Debug\MVCPrj1.csprojResolveAssemblyReference.cache
 F:\aspnetClass\MVCPrj1\MVCPrj1\obj\Debug\MVCPrj1.dll
 F:\aspnetClass\MVCPrj1\MVCPrj1\obj\Debug\MVCPrj1.pdb
 F:\aspnetClass\MVCPrj1\MVCPrj1\bin\Microsoft.AspNet.Identity.Core.dll
+F:\aspnetClass\MVCPrj1\MVCPrj1\obj\Debug\MVCPrj1.Migrations.InitialCreate.resources
+F:\aspnetClass\MVCPrj1\MVCPrj1\obj\Debug\MVCPrj1.csproj.GenerateResource.Cache
+F:\aspnetClass\MVCPrj1\MVCPrj1\obj\Debug\MVCPrj1.Migrations.modifyCUserField.resources
+F:\aspnetClass\MVCPrj1\MVCPrj1\obj\Debug\MVCPrj1.csprojResolveAssemblyReference.cache

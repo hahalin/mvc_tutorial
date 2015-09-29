@@ -17,6 +17,10 @@ namespace MVCPrj1.Controllers
 
         }
 
+        public ActionResult TestAdmin()
+        {
+            return View();
+        }
 
         public ActionResult About()
         {
@@ -65,10 +69,10 @@ namespace MVCPrj1.Controllers
                 departmentlist.Add(depobj);
             }
 
-            return View(departmentlist);
+            //return View(departmentlist);
 
-            /*
-            department depobj = new department();
+            departmentlist.Clear();
+            depobj = new department();
             depobj.id = "a001"; depobj.departmentName = "業務部";
             departmentlist.Add(depobj);
 
@@ -79,8 +83,8 @@ namespace MVCPrj1.Controllers
             depobj = new department();
             depobj.id = "a003"; depobj.departmentName = "行銷部";
             departmentlist.Add(depobj);
-            */
-            //ViewBag.contactlist = departmentlist;
+
+            return View(departmentlist);
 
             
             

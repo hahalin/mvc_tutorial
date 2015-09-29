@@ -50,6 +50,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -164,13 +165,27 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CAccountController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
+    <Compile Include="Controllers\FAdminController.cs" />
+    <Compile Include="Controllers\FUserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="CStartup.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201509260846075_InitialCreate.cs" />
+    <Compile Include="Migrations\201509260846075_InitialCreate.Designer.cs">
+      <DependentUpon>201509260846075_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509261217391_modifyCUserField.cs" />
+    <Compile Include="Migrations\201509261217391_modifyCUserField.Designer.cs">
+      <DependentUpon>201509261217391_modifyCUserField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CDbContext.cs" />
+    <Compile Include="Models\CRole.cs" />
+    <Compile Include="Models\CUser.cs" />
     <Compile Include="Models\department.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\CLoginViewModel.cs" />
@@ -246,9 +261,17 @@
     <Content Include="Views\Admin\Department.cshtml" />
     <Content Include="Views\Department\Create.cshtml" />
     <Content Include="Views\Department\Edit.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Home\TestAdmin.cshtml" />
+    <Content Include="Views\Shared\_Admin_Navigation.cshtml" />
+    <Content Include="Views\Shared\_Admin_NavTop.cshtml" />
+    <Content Include="Views\Shared\_Admin_NavLeft.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="theme-admin\" />
+    <Folder Include="Views\FAdmin\" />
+    <Folder Include="Views\FUser\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -256,6 +279,17 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201509260846075_InitialCreate.resx">
+      <DependentUpon>201509260846075_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509261217391_modifyCUserField.resx">
+      <DependentUpon>201509261217391_modifyCUserField.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
