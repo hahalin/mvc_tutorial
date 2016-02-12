@@ -19,7 +19,7 @@ namespace MVCPrj1.Controllers
         [AllowAnonymous]
         public  string test()
         {
-            CDbContext dc = new CDbContext();
+            FlowDbContext dc = new FlowDbContext();
             var userlist = dc.users.ToList<CUser>();
 
             string r = "";
@@ -56,7 +56,7 @@ namespace MVCPrj1.Controllers
             }
             //string base64Password = Convert.ToBase64String(Encoding.UTF8.GetBytes(Password));
 
-            using (CDbContext dc=new CDbContext())
+            using (FlowDbContext dc = new FlowDbContext())
             {
                 var userlist = dc.users.ToList<CUser>();
 
@@ -108,7 +108,7 @@ namespace MVCPrj1.Controllers
                 try
                 {
                     //throw new Exception("我自訂錯誤");
-                    CDbContext dc = new CDbContext();
+                    FlowDbContext dc = new FlowDbContext();
 
                     CUser u = new CUser();
                     u.userid = model.Username;

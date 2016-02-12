@@ -5,6 +5,7 @@ using System.Data;
 using System.Web;
 using System.Web.Mvc;
 using MVCPrj1.Models;
+using Microsoft.AspNet.Identity;
 
 
 namespace MVCPrj1.Controllers
@@ -19,6 +20,13 @@ namespace MVCPrj1.Controllers
 
         public ActionResult TestAdmin()
         {
+            ApplicationDbContext ctx = new ApplicationDbContext();
+            
+            string currentUserId = User.Identity.GetUserId();
+            ApplicationUser currentUser = ctx.Users.FirstOrDefault(x => x.Id == currentUserId);
+            ViewBag.UserID = currentUserId;
+            ViewBag.CompanyID = currentUser.company_id;
+
             return View();
         }
 
@@ -30,6 +38,7 @@ namespace MVCPrj1.Controllers
             ViewData["Content"] = "這個網站是一個教學課程中逐步建立的網站，同時配置在希望能對您有幫助";
 
             ViewBag.Message = "Your application description page 123.";
+
 
 
 

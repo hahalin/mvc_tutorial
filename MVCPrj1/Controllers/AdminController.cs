@@ -9,7 +9,7 @@ using MVCPrj1.Models;
 namespace MVCPrj1.Controllers
 {
     //[Authorize(Roles = "superadmin,admin")] 
-    [Authorize]
+    //[Authorize]
     public class AdminController : Controller
     {
         // GET: Admin
@@ -20,34 +20,36 @@ namespace MVCPrj1.Controllers
             return View();
         }
 
+        public ActionResult FUser()
+        {
+            return View();
+        }
+
+        public ActionResult FDep()
+        {
+            return View();
+        }
+
+        public ActionResult FDepTree()
+        {
+            return View();
+        }
+
+        public ActionResult FRole()
+        {
+            return View();
+        }
         
         
         //[Authorize(Roles = "superadmin,admin")]  // authenication 
         public ActionResult Department()
         {
 
-            CDbContext dc = new CDbContext();
+            FlowDbContext dc = new FlowDbContext();
             var dlist = dc.departments.ToList<department>();
             return View(dlist);
 
 
-            //改為從資料庫讀取部門資料，一筆一筆建立Department物件存入departmentlist
-            //List<department> departmentlist = new List<department>();
-
-            //SqlHelper hp = new SqlHelper();
-
-            //DataTable tb = hp.Sql2Table("select id,cname from dep");
-
-            //department depobj;
-            //foreach(DataRow r in tb.Rows)
-            //{
-            //    depobj = new department();
-            //    depobj.id = r["id"].ToString();
-            //    depobj.departmentName = r["cname"].ToString();
-            //    departmentlist.Add(depobj);
-            //}
-
-            //return View(departmentlist);
         }
 
     }

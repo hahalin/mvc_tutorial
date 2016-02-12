@@ -9,6 +9,17 @@ namespace MVCPrj1.Models
     // 您可以在 ApplicationUser 類別新增更多屬性，為使用者新增設定檔資料，請造訪 http://go.microsoft.com/fwlink/?LinkID=317594 以深入了解。
     public class ApplicationUser : IdentityUser
     {
+        //public int co_code
+        //{
+        //    get;
+        //    set;
+        //}
+        public int company_id
+        {
+            get;
+            set;
+        }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // 注意 authenticationType 必須符合 CookieAuthenticationOptions.AuthenticationType 中定義的項目
@@ -21,13 +32,21 @@ namespace MVCPrj1.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("con1", throwIfV1Schema: false)
         {
         }
 
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<ApplicationUser>().ToTable("Account").Property(p => p.Id).HasColumnName("AccountID");
+            modelBuilder.Entity<IdentityUserClaim>().ToTable("userClaim");
         }
     }
 }

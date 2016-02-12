@@ -1,0 +1,127 @@
+﻿
+<script src="~/Scripts/jquery.validate.min.js"></script>
+@{
+    //ViewBag.Title = "send";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("submit", "frm", FormMethod.Post, new { id = "fma" }))
+{
+
+    <div class="row">
+        <input type="submit" id="btnsave" value="送出" class="btn btn-primary" />
+    </div>
+}
+<style>
+    label.error {
+        font-size: 16px;
+        color: red;
+        padding-left: 3px;
+    }
+</style>
+<script type="text/javascript">
+    var form_id=@ViewBag.form_id;
+    var co_code=@ViewBag.co_code;
+    $(document).ready(function () {
+
+        $('#fma').addClass('form-horizontal').addClass("col-md-12");
+
+
+        $.ajax({
+            method: 'POST',
+            data: { form_id: form_id, co_code: co_code },
+            url: '@Url.Action("getFormTag", "Frm")',
+            dataType: 'json',
+            success: function (r) {
+                var define = r.define;
+                var i=0;
+                $.each(define, function (index, item) {
+                    var row = item.row;
+                    console.log(row);
+                    if ($('#fma .form-group').eq(row-1).length == 0) {
+                        $('#fma').append('<div class="form-group"></div>');
+                    }
+                    i++;
+                });
+                $.each(define, function (index, item) {
+                    if (item.ctl_type == 'SELECT') {
+                        item.ctl_type = 'INPUT';
+                    }
+                    var fd = document.createElement(item.ctl_type);
+                    $(fd).attr('id',item.ctl_id).attr('name',item.ctl_id);
+                    var label = null;
+                    if (item.ctl_type == 'TEXTAREA') {
+                        $(fd).attr('rows', 6);
+                    }
+
+                    if (item.ctl_remark != null)
+                    {
+                        label = document.createElement('label');
+                        $(label).text(item.ctl_remark);
+                        $(label).addClass('control-label');
+                        $(label).addClass('col-xs-1');
+                        $(label).css('width', '100px');
+                    }
+                    var div = $('#fma .form-group').eq(item.row-1);
+                    if (label != null) {
+                        $(div).append(label);
+                    }
+                    var exprop = JSON.parse(item.exprop);
+                    if (exprop != null) {
+                        $(fd).css('width', '50px');
+                        //css('text-align', 'right');
+                        var cdiv;
+                        var gp = exprop.group;
+                        if ($(div).children("div[group='" + gp + "']").length == 0) {
+                            cdiv = document.createElement('div');
+                            $(cdiv).addClass('col-sm-6').attr('group', gp);
+                            $(div).append(cdiv);
+                        }
+                        else {
+                            cdiv = $(div).children("div[group='" + gp + "']");
+                        }
+                        $(cdiv).append(fd);
+                        $(fd).after('<span style="width:30px;display:inline-block;">' + exprop.postlabel + '</span>');
+                    }
+                    else {
+                        $(fd).addClass('form-control');
+                        $(fd).addClass('col-sm-' + item.size);
+                        var cdiv = document.createElement('div');
+                        $(div).append(cdiv);
+                        $(cdiv).addClass('col-sm-' + item.size);
+                        $(cdiv).append(fd);
+                    }
+                });
+
+
+
+
+                var rules=new Object;
+                var messages=new Object;
+                $.each(define, function (index, item) {
+
+                    var validobj=new Object;
+                    var validMsg=new Object;
+                    validobj[item.ValidMethod]=true;
+                    validMsg[item.ValidMethod]=item.ValidMsg;
+                    //validobj['messages']=validMsg;
+                    var rule=new Object;
+                    rules[item.ctl_id]=validobj;
+                    var message=new Object;
+                    messages[item.ctl_id]=validMsg;
+                    //$('#'+item.ctl_id).rules("add",validobj);
+                });
+                //$('#txtSubject').rules("add",{required:true,messages:{required:'請輸入主旨'}});
+                //$('#txtRemark').rules("add",{required:true,messages:{required:'請輸入內容'}});
+
+
+                $('#fma').validate({
+                    rules:rules,
+                    messages:messages
+                });
+            }
+        });
+    });
+</script>

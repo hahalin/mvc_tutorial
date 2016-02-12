@@ -1,7 +1,7 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-//[assembly: OwinStartupAttribute(typeof(MVCPrj1.Startup))]
+[assembly: OwinStartupAttribute(typeof(MVCPrj1.Startup))]
 namespace MVCPrj1
 {
 

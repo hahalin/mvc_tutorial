@@ -1,0 +1,60 @@
+﻿@model MVCPrj1.Models.FlowModel.FlowInstance
+
+@{
+    //ViewBag.Title = "FlowNeedApproveDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <div class="form-group">
+        <input type="button" class="btn btn-primary btn-lg" value="同意" />
+        <input type="button" class="btn btn-warning btn-lg" value="不同意" />
+    </div>
+    <div class="form-group">
+        @*<label>Text Input with Placeholder</label>*@
+        <textarea class="form-control" placeholder="輸入您的意見" rows="2"></textarea>
+</div>
+
+    @*<h4>@Html.DisplayFor(model => model.title)</h4>*@
+    
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fdate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fdate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.smemo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.smemo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.id }) |*@
+    @Html.ActionLink("返回", "FlowNeedApprove",null, new {@class="btn btn-success"})
+</p>

@@ -26,6 +26,7 @@ namespace MVCPrj1.Controllers
         {
             UserManager = userManager;
             SignInManager = signInManager;
+           
         }
 
         public ApplicationSignInManager SignInManager
@@ -437,6 +438,7 @@ namespace MVCPrj1.Controllers
 
         private void AddErrors(IdentityResult result)
         {
+            
             foreach (var error in result.Errors)
             {
                 ModelState.AddModelError("", error);

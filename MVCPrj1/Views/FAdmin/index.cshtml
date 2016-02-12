@@ -1,0 +1,49 @@
+﻿@using MVCPrj1.Models.FlowModel
+@*@model MVCPrj1.Models.FlowModel.viewFlows*@
+@model MVCPrj1.Models.viewModel.vwFlowStatus 
+
+@{
+    
+    //ViewBag.Title = "FLowNeedApproveView";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    //var modela = Model.NeedApprove;
+    //var modelb = Model.myflows;
+    //var modelc = Model.follows;
+
+}
+
+@*<h2>FLowNeedApproveView</h2>*@
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <ul class="nav nav-tabs" role="tablist" id="mtabs">
+        <li role="presentation" class="active"><a href="#tab1" aria-controls="tab" role="tab" data-toggle="tab">待簽核表單</a></li>
+        <li role="presentation"><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">申請中表單</a></li>
+        <li role="presentation"><a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">追蹤表單</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active fade in" id="tab1">
+            @Html.Partial("FlowNeedApprove", Model)
+        </div>
+        <div role="tab" class="tab-pane fade" id="tab2">tab2</div>
+        <div role="tab" class="tab-pane fade" id="tab3">tab3</div>
+    </div>
+
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#tabs a').click(function (e) {
+                e.preventDefault()
+                $(this).tab('show')
+            })
+        });
+    </script>
+}
+
+
+
+

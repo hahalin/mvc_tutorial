@@ -34,7 +34,7 @@ namespace MVCPrj1.Controllers
         [HttpGet]
         public ActionResult Edit(string id)
         {
-            CDbContext dc = new CDbContext();
+            FlowDbContext dc = new FlowDbContext();
 
             var depobj=dc.departments.Where(a => a.id.Equals(id)).FirstOrDefault();
             if (depobj !=null)
