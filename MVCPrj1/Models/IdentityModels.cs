@@ -20,6 +20,12 @@ namespace MVCPrj1.Models
             set;
         }
 
+        public string usr_id
+        {
+            get;
+            set;
+        }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // 注意 authenticationType 必須符合 CookieAuthenticationOptions.AuthenticationType 中定義的項目
@@ -48,5 +54,7 @@ namespace MVCPrj1.Models
             modelBuilder.Entity<ApplicationUser>().ToTable("Account").Property(p => p.Id).HasColumnName("AccountID");
             modelBuilder.Entity<IdentityUserClaim>().ToTable("userClaim");
         }
+
+        //public System.Data.Entity.DbSet<MVCPrj1.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }

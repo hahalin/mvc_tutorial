@@ -14,7 +14,7 @@ class FormData extends  React.Component {
 		    	FormData
 		    	<label>{co_code}</label>
 		    	
-		    	<input value={this.props.uid}></input>
+		    	<input defaultValue={this.props.uid}></input>
 		    </form>	
 
 		);

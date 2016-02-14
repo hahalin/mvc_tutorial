@@ -1,4 +1,11 @@
-﻿var path = require('path');
+﻿
+
+if (global.Promise == null) {
+    global.Promise = require('es6-promise')
+}
+
+
+var path = require('path');
 //var webpack = require('webpack');
 var React = require('react');
 var ReactDOM =require('react-dom');
@@ -11,7 +18,8 @@ var ReactDOM =require('react-dom');
 module.exports = {
     context: path.join(__dirname, 'App'),
     entry: {
-      CheckForm:'./CheckForm.jsx'
+      //CheckForm:'./CheckForm.jsx'
+      ViewFlowSub:'./ViewFlowSub.jsx'
     },
     output: {
         path: path.join(__dirname, 'Scripts/Flow'),
@@ -19,14 +27,7 @@ module.exports = {
     },
     module: {
     loaders: [
-      /*
-      {
-        test: /\.css$/, // Only .css files
-        exclude: /node_modules/,
-        loader: 'style!css' // Run both loaders
-      },
-      */
-      { test: /\.css$/, loader: "style-loader!css-loader" },
+      {test: /\.css$/ , loader: 'style-loader!css-loader?sourceMap'},
       {
         // Test for js or jsx files.
         test: /\.jsx?$/,

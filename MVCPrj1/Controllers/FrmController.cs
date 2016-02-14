@@ -20,6 +20,11 @@ namespace MVCPrj1.Controllers
             return View();
         }
 
+        public ActionResult StatusSub()
+        {
+            return View();
+        }
+
         //[HttpGet]
         public ActionResult send(string id,string co_code)
         {

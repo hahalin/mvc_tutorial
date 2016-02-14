@@ -53,6 +53,17 @@ namespace MVCPrj1.Controllers
             }
         }
 
+        //[ChildActionOnly]
+        public PartialViewResult GetUserInfo()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var user = UserManager.FindById(User.Identity.GetUserId());
+                return PartialView(user);
+            }
+            return PartialView();
+        }
+
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -152,7 +163,9 @@ namespace MVCPrj1.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser {
+                   usr_id=model.user_id,UserName = model.Email, Email = model.Email 
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

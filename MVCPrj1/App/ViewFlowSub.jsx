@@ -3,14 +3,15 @@
 var React = require('react');
 var ReactDOM =require('react-dom');
 
+//require('../Content/bootstrap.min.css');
+
+
 import FormData from './ViewFlow/FormData';
 //var FormData =require('ViewForm/FormData');
 
 var Tabs=React.createClass({
 
 	render: function() {
-
-
 
 		return (
 			<div>
@@ -26,11 +27,13 @@ var Tabs=React.createClass({
 		        <div className="tab-content">
 		        	
 		        	<div role="tabpanel" className="tab-pane active fade in" id="fma-tab1">
-	                   <FormData co_code="1" uid='T000165'> 
-	                   </FormData>
+		        	   <p>
+		                   <FormData co_code="1" uid='T000165'> 
+		                   </FormData>
+	                   </p>
 		            </div>
 		             <div role="tabpanel" className="tab-pane fade in" id="fma-tab2">
-		               
+		               	<p>
 		                <form id="fmSign" className="form-horizontal">
 		                    <div className="row">
 		                        <div className="col-md-10">
@@ -40,11 +43,11 @@ var Tabs=React.createClass({
 		                    </div>
 		                    <div className="row">
 		                        <div className="col-md-4">
-		                            <label for="txtOpinion">審核意見</label>
+		                            <label htmlFor="txtOpinion">審核意見</label>
 		                            <textarea id="txtOpinion" rows="15" className="form-control"></textarea>
 		                        </div>
 		                        <div className="col-md-8">
-		                            <label for="txtOpinion">審核紀錄</label>
+		                            <label htmlFor="txtOpinion">審核紀錄</label>
 
 		                            <table id="tbSignHistory" className="display table table-striped table-bordered table-hover">
 		                                <thead>    
@@ -59,6 +62,7 @@ var Tabs=React.createClass({
 		                        </div>
 		                    </div>
 		                </form>
+		                </p>
 		            </div>
 		         	
 		        </div>
@@ -75,3 +79,5 @@ ReactDOM.render(
         </Tabs>,
         document.getElementById('container')
 );
+
+console.log('react');
