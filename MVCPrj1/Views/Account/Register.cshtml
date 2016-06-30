@@ -1,47 +1,72 @@
 ﻿@model MVCPrj1.Models.RegisterViewModel
 @{
     ViewBag.Title = "註冊";
+
 }
 
 <h2>@ViewBag.Title.</h2>
 
+
 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
-    @Html.AntiForgeryToken()
-    <h4>建立新的帳戶。</h4>
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.user_id, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.user_id, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="註冊" />
+    <div class="row">
+        <div ng-app="BpmApp" ng-controller="regctrl" class="col-sm-5">
+            @Html.AntiForgeryToken()
+            <h4>建立新的帳戶。</h4>
+            <h5>{{message}}</h5>
+            <hr />
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+            <div class="form-group">
+                @*@Html.LabelFor(m => m.company_id, new { @class = "col-md-2 control-label" })*@
+                <label class="col-md-2 control-label">公司別</label>
+                
+                <div class="col-md-10">
+                    <select ng-model="selectedCompany"
+                            ng-init="selectedCompany='2'" name="company_id"
+                            class="form-control" ng-options="c.id as c.nm for c in companies ">
+                        @*<option data-ng-repeat="c in companies" value="{{c.id}}">{{c.nm}}</option>*@
+                        @*<option data-ng-repeat="company in companies" value="{{company.id}}">{{company.nm}}</option>*@
+                        @*<option value="">-- 請選擇 --</option>*@
+                    </select>
+                    
+                    
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.user_id, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.user_id, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" class="btn btn-default" value="註冊" />
+                </div>
+            </div>
+
         </div>
     </div>
 }
-
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @*@Scripts.Render("~/bundles/angular")*@
+    <script src="~/App/ctrl/register.js"></script>
 }

@@ -1,8 +1,11 @@
 ﻿@{
     ViewBag.Title = "IndexView";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    //Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_ReactLayout.cshtml";
 }
 
+
+<!--
 <h2>管理員首頁</h2>
 
 <ul>
@@ -10,3 +13,11 @@
         @Html.ActionLink("部門管理", "Department", "Admin",null, null)
     </li>
 </ul>
+-->
+
+<div id="main"></div>
+<div id="submenu"></div>
+<div id="mainmenu"></div>
+
+<script type="text/javascript" src="~/App_Redux/dist/home.bundle.js">
+</script>

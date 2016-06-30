@@ -1,0 +1,272 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta charset="utf-8" />
+		<title>Test Page</title>
+		<script type="text/javascript"  src="Scripts/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript"  src="Scripts/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+		<script type="text/javascript"  src="Scripts/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css"  href="Content/bootstrap.min.css"></link>
+		<!-- <link rel="stylesheet" type="text/css"  href="Content/Site.css"></link> -->
+		
+		<style>
+			#form_design
+			{
+				border-radius: 5px;
+				background-color: #fcfcfc;
+				border:1px solid #dddddd;
+				display:block;
+				height:500px;
+				padding:5px;
+			}
+			#div_elements
+			{
+				display:block;
+				list-style: none;
+						}
+			#div_elements > li
+			{
+				display:list-item;
+				position: relative;
+				margin-top:5px;
+				line-height: 25px;
+				cursor:default;
+			}
+				
+			
+			.form-row
+			{
+				background-color:  #fdfdfd;
+				border:1px solid #efefef;
+				display: table-row;
+				width:95%;
+				min-height:40px;
+				height:auto;
+				float:left;
+				margin-left:5px;
+				margin-top:3px;
+				margin-bottom:5px;
+			}
+			
+			.form-row.selected
+			{
+				background: #f4f4f4;
+				border: 2px dashed #DDDDDD;
+			}
+			.form-row:hover{
+				border: 2px dashed #DDDDDD;
+			}
+			.form-col>label
+			{
+				text-align: right;
+				width:75px;
+				cursor:move;
+			}
+			.form-col
+			{
+			
+				margin:2px;
+				display:block;
+				padding-right:20px;
+				float:left;
+				background-color: #efefef;
+				position:relative;
+				
+			}
+			.form-col:hover
+			{
+				
+				border:1px dashed gray;
+				cursor:move;
+			}
+			.form-col.selected
+			{
+				background-color: #efefef;
+				border:1px dashed gray;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="divqw" 
+					style="display:none;border:2px gray solid;width:500px;height:300px;position:absolute;
+					background-color:#ececec;z-index:1001;">
+						<input type="text" id='popeda' />
+						<button onclick="$('#eda').val($('#popeda').val());">select</button>
+					</div>
+		<div class="container">
+			<div class="row">
+					<input type="text" id="eda"></input>
+					<button id="btnq">...</button>
+					
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+					<input type="text" id="edb"></input>
+					<button id="btnqb">...</button>
+					
+			</div>
+		</div>
+
+		<div class="container" id="main">
+			container
+		</div>
+		
+		<div class="container">
+			<div class="row">
+				<br />
+				
+				
+			</div>
+			</container>
+			<div class="container">
+				<div class="row col-md-10">
+					<!-- title="Popover title"
+					data-content="And here's some amazing content. It's very engaging. Right?"
+					-->
+					<button
+					id="btnadd"
+					class="btn btn-default btn-sm"
+					data-toggle="popover"
+					data-trigger="focus"
+					title="titleabcdefg"
+					>
+					<i class="glyphicon glyphicon-plus">
+					</i>
+					add fields
+					</button>
+					
+				</div>
+				
+			</div>
+			<script type="text/javascript"  src="Scripts/Flow/DesignForm.bundle.js"></script>
+			<script>
+			
+				function createFd(fdname,fdobj)
+				{
+					var field=fdname;
+					var lb=$('<label>'+field+"</label>");
+					var fd=$('<input type="text" />').width(fdobj.width).val(field);
+					var fdcol=$('<div class="form-col" id="preview_field_'+field+'"></div>');
+					fdcol.attr('width',fdobj.width);
+					fdcol.append(lb).append(fd);
+					fdcol.on('click',function(){
+						$('.form-col').removeClass("selected");
+						fdcol.addClass("selected");
+					})
+					fdcol.on('hover',function(){
+						$('.form-col').removeClass("selected");
+						fdcol.addClass("selected");
+
+					})
+					return fdcol;
+				}
+				function gen_formrow()
+				{
+					var div=$('<div class="form-row"></div>');
+					$(div).sortable({
+						appendTo:"#div_elements",
+						connectWith:".form-row",
+						items:'.form-col'
+					});
+					$(div).click(function(){
+						$('.form-row').removeClass('selected');
+						$(div).addClass('selected');
+					});
+					return div;
+				}
+
+				$(function(){
+
+					$('#btnq').on('click',function(){
+
+						$(this).parent().append($('#divqw'));
+
+						$('#divqw').toggle('fast');
+					});
+
+					$('#btnqb').on('click',function(e){
+
+						console.log('btnqb click');
+						$(this).parent().append($('#divqw'));
+
+						$('#divqw').toggle('fast');
+						event.stopPropagation();
+
+					});
+
+
+					//http://stackoverflow.com/questions/15386686/jquery-hide-box-when-clicking-on-body-but-not-on-element-itself
+					$(document.body).on('click',function(e){
+						if(e.target.id != 'btnqb' && e.target.id != 'divqw')
+     					if ( $('#divqw').is(':visible') ) $('#divqw').toggle('fast');
+					    //if(!target.is('#btn') && !target.is('#overlay')) {
+					       //if ( $('#overlay').is(':visible') ) $('#overlay').hide();
+					    //}
+					});
+
+
+				});
+
+		// 		$(function () {
+									
+		// 			$("#btnadd").popover({
+		// 					html: true,
+		// 					placement:"bottom",
+		// 					title:'abc',
+		// 					content:'<ul class="nav nav-tabs nav-stacked" style="margin-bottom:0px;" id="form-fields"></ul>&nbsp;'
+		// 			});
+			
+		// 		$('#btnadd').on('shown.bs.popover',function(){
+		// 			$('#form-fields').empty();
+		// 			var item=$('<li><a class="btn btn-default"><i class="glyphicon glyphicon-plus"></i>aaaaa</a>');
+					
+		// 			$(item).click(function(){
+						
+		// 				var div;
+		// 				if ($('.form-row.selected').length===0)
+		// 				{
+		// 					div=gen_formrow();
+		// 				}
+		// 				else
+		// 				{
+		// 					div=$('.form-row.selected');
+		// 				}
+						
+		// 				div.append(createFd("aa"));
+						
+		// 				$('#div_elements').append(div);
+						
+		// 			});
+				
+		// 			$('#form-fields').append(item);
+				
+		// 			item=$('<li><a><i class="glyphicon glyphicon-plus"></i>add fieldset</a>');
+				
+		// 			item.click(function(){
+		// 				div=gen_formrow();
+		// 				$('#div_elements').append(div);
+		// 				$('#div_elements').sortable({
+		// 						items:'.form-row'
+		// 				});
+		// 			});
+				
+		// 			$('#form-fields').append(item);
+					
+		// 			$('#form-fields>li').click(
+		// 				function(){
+		// 					$("#btnadd").popover('hide');
+		// 				}
+		// 			);
+			
+		// 			$('#btnadd').click(function(){
+					
+		// 				$(this).popover();
+		// 			});
+		// 		});
+		
+		// }) //doc.ready
+		</script>
+	</body>
+</html>

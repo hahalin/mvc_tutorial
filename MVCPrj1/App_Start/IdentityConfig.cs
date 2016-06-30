@@ -47,7 +47,7 @@ namespace MVCPrj1
             manager.UserValidator = new UserValidator<ApplicationUser>(manager)
             {
                 AllowOnlyAlphanumericUserNames = false,
-                RequireUniqueEmail = true
+                RequireUniqueEmail = false
             };
 
             // 設定密碼的驗證邏輯
@@ -55,8 +55,8 @@ namespace MVCPrj1
             {
                 RequiredLength = 6,
                 RequireNonLetterOrDigit = false,
-                RequireDigit = true,
-                RequireLowercase = true,
+                RequireDigit = false,
+                RequireLowercase = false,
                 RequireUppercase = false,
             };
 

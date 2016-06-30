@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+
+    <title>@ViewBag.Title</title>
+    <link href="~/theme-admin/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/theme-admin/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+    <link href="~/theme-admin/dist/css/timeline.css" rel="stylesheet" />
+    <link href="~/theme-admin/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="~/theme-admin/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link href="~/theme-admin/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet" />
+    <link href="~/theme-admin/bower_components/morrisjs/morris.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="wrapper">
+        @RenderBody()
+
+
+    </div>
+
+    @*@Scripts.Render("~/bundles/jquery")*@
+    <script src="~/theme-admin/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="~/theme-admin/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/theme-admin/bower_components/metisMenu/dist/metisMenu.min.js"></script>
+    <script src="~/theme-admin/bower_components/raphael/raphael-min.js"></script>
+    <script src="~/theme-admin/bower_components/morrisjs/morris.min.js"></script>
+    <script src="~/theme-admin/js/morris-data.js"></script>
+    <script type="text/javascript" src="~/theme-admin/dist/js/sb-admin-2.js"></script>
+    @RenderSection("scripts", required: false)
+
+
+</body>
+</html>

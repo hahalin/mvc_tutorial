@@ -49,10 +49,10 @@ namespace MVCPrj1.Models
     public class LoginViewModel
     {
         //[Required]
-        //[Display(Name = "工號")]
-        //public string user_id { get; set; }
+        [Display(Name = "工號")]
+        public string user_id { get; set; }
 
-        [Required]
+        //[Required]
         [Display(Name = "電子郵件")]
         [EmailAddress]
         public string Email { get; set; }
@@ -69,10 +69,14 @@ namespace MVCPrj1.Models
     public class RegisterViewModel
     {
         [Required]
+        [Display(Name = "公司別")]
+        public string company_id { get; set; }
+
+        [Required]
         [Display(Name = "工號")]
         public string user_id { get; set; }
 
-        [Required]
+        //[Required]
         [EmailAddress]
         [Display(Name = "電子郵件")]
         public string Email { get; set; }

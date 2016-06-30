@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Reflection;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using MVCPrj1.Models;
 using MVCPrj1.Models.FlowModel;
 using MVCPrj1.Models.viewModel;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 namespace MVCPrj1.Controllers
 {
@@ -121,20 +118,20 @@ namespace MVCPrj1.Controllers
             DataTable tb = so.Sql2Table(sql);
 
             var q = GetTableRows(tb);
-
-            var _rows = from item in tb.AsEnumerable() where item.Field<int>("item_row") > 0 select item;
-            var _items = tb.AsEnumerable().Max(row => row["item_no"]);
-            var _group = from item in tb.AsEnumerable()
-                         group item by item.Field<int>("item_no") into g
-                         select new { item_no = g.Key, cnt = g.Count() };
+            
+            //var _rows = from item in tb.AsEnumerable() where item.Field<int>("item_row") > 0 select item;
+            //var _items = tb.AsEnumerable().Max(row => row["item_no"]);
+            //var _group = from item in tb.AsEnumerable()
+            //             group item by item.Field<int>("item_no") into g
+            //             select new { item_no = g.Key, cnt = g.Count() };
             
             
             var o = new
             {
-                rows=_rows.Count()+1,
-                group=_group,
-                items=_items,
-                data = q
+                //rows=_rows.Count()+1,
+                //group=_group,
+                //items=_items,
+                //data = q
             };
             return Json(o, JsonRequestBehavior.AllowGet);
         }
@@ -251,10 +248,10 @@ namespace MVCPrj1.Controllers
                 ;
             DataTable tb = so.Sql2Table(sql);
 
-            int pagesize = Convert.ToInt16(Request.Form["length"].ToString());
+            int pagesize = Convert.ToInt16(Request.Form["pageSize"].ToString());
 
             var q = GetTableRows(tb) 
-                .Skip(Convert.ToInt16(Request.Form["start"].ToString()))
+                .Skip(Convert.ToInt16(Request.Form["skip"].ToString()))
                 .Take(pagesize)
              ;
             string jsonString = JsonConvert.SerializeObject(tb);
@@ -263,6 +260,7 @@ namespace MVCPrj1.Controllers
             {
                 draw = Request.Form["draw"].ToString(),
                 recordsTotal = tb.Rows.Count,
+                page= tb.Rows.Count/ pagesize +1,
                 recordsFiltered = tb.Rows.Count, //q.Count(),
                 data = q
             };

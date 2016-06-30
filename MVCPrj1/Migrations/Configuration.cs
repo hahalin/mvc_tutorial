@@ -4,6 +4,9 @@ namespace MVCPrj1.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using Models;
 
     internal sealed class Configuration : DbMigrationsConfiguration<MVCPrj1.Models.ApplicationDbContext>
     {
@@ -26,6 +29,31 @@ namespace MVCPrj1.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+            importEFormUser(context);
+        }
+
+        void importEFormUser(MVCPrj1.Models.ApplicationDbContext context)
+        {
+            var manager = new UserManager<ApplicationUser>(
+                    new UserStore<ApplicationUser>(
+                        new ApplicationDbContext()
+                    )
+                );
+
+            FlowDbContext ctx = new FlowDbContext();
+            foreach(EUser u in ctx.EUser.OrderBy(m=>m.usr_id).ToList())
+            {
+                if (manager.FindByName(u.usr_id)== null)
+                {
+                    var user = new ApplicationUser()
+                    {
+                        UserName = u.usr_id,
+                        Email = u.usr_email                        
+                    };
+                    manager.Create(user, "p@ssword");
+                }
+            }
+
         }
     }
 }

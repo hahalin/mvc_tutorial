@@ -46,22 +46,42 @@
 
 	'use strict';
 
-	//import React from 'react';
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	//import React from 'react';
-	//require('./index.styl')
-	//import Forms from './gdFlowFormList.jsx';
+	var _gridGdNeedApproveJs = __webpack_require__(1);
 
-	var _gridDataGrid1Js = __webpack_require__(1);
+	var _gridGdNeedApproveJs2 = _interopRequireDefault(_gridGdNeedApproveJs);
 
-	var _gridDataGrid1Js2 = _interopRequireDefault(_gridDataGrid1Js);
+	var _gridTestDataGridJs = __webpack_require__(309);
 
-	//var Hello=require('./hello');
+	var _gridTestDataGridJs2 = _interopRequireDefault(_gridTestDataGridJs);
+
+	var _gridPaginatorJsx = __webpack_require__(310);
+
+	var _gridPaginatorJsx2 = _interopRequireDefault(_gridPaginatorJsx);
 
 	var React = __webpack_require__(2);
-	var ReactDOM = __webpack_require__(160);ReactDOM.render(React.createElement(_gridDataGrid1Js2['default'], null), document.getElementById('container'));
+	var ReactDOM = __webpack_require__(160);
+
+	ReactDOM.render(React.createElement(
+		'div',
+		null,
+		React.createElement(
+			'table',
+			null,
+			React.createElement(
+				'tr',
+				null,
+				React.createElement(
+					'td',
+					null,
+					'1'
+				)
+			)
+		),
+		React.createElement(_gridGdNeedApproveJs2['default'], null),
+		React.createElement(_gridPaginatorJsx2['default'], { ctrl: 'flow', pg: '1', currentpage: '1' })
+	), document.getElementById('container'));
 
 /***/ },
 /* 1 */
@@ -75,8 +95,9 @@
 	});
 	var React = __webpack_require__(2);
 	var DataGrid = __webpack_require__(159);
+	//import Paginator from "./Paginator.jsx"
 
-	var columns = [{ name: 'item_no', width: 150 }, { name: 'file_name' }, { name: 'attach_time' }];
+	var columns = [{ name: 'apply_title', width: 150 }, { name: 'form_name' }, { name: 'dep_name' }, { name: 'usr_name' }, { name: 'receive_time' }];
 
 	function dataSource(query) {
 		//you need to return a Promise (or a thenable)
@@ -85,33 +106,44 @@
 		param.form_id = 29;
 		param.seq_no = 17132;
 		param.pageSize = query.pageSize;
-		console.log(query.pageSize);
+		param.skip = query.skip;
+		console.log(query);
+		param.page = 2;
+		param.co = '0';
+		param.uid = 'T000165';
+		param.draw = 0;
+
+		return null;
 
 		return $.ajax({
-			url: 'http://localhost:46323/FAdmin/getAttachfiles',
+			url: 'http://localhost:46323/FAdmin/getBillList',
 			method: 'POST',
 			dataType: "json",
-			//data:JSON.stringify(param)
-			//data:{co_code:0,form_id:29,seq_no:17132}
+			idProperty: 'form_id',
 			data: param
 		});
 		//of course you can also send a POST request
 	}
 
-	var DataGrid1 = React.createClass({
-		displayName: 'DataGrid1',
+	var GdNeedApprove = React.createClass({
+		displayName: 'GdNeedApprove',
 
 		render: function render() {
-			return React.createElement(DataGrid, {
-				dataSource: dataSource,
-				idProperty: 'item_no',
+			return;
+
+			React.createElement(DataGrid,
+			//dataSource={dataSource}
+			{ idProperty: 'form_id',
 				columns: columns,
 				style: { height: 500 }
 			});
+
+			// <Paginator>
+			// </Paginator>
 		}
 	});
 
-	exports['default'] = DataGrid1;
+	exports['default'] = GdNeedApprove;
 	module.exports = exports['default'];
 
 /***/ },
@@ -34956,6 +34988,149 @@
 	  self.fetch.polyfill = true
 	})();
 
+
+/***/ },
+/* 309 */
+/***/ function(module, exports, __webpack_require__) {
+
+	
+	'use strict';
+
+	//import React from 'react';
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+	var React = __webpack_require__(2);
+	var DataGrid = __webpack_require__(159);
+
+	var data = [{ id: '1', firstName: 'John', lastName: 'Bobson' }, { id: '2', firstName: 'Bob', lastName: 'Mclaren' }];
+	var columns = [{ name: 'firstName' }, { name: 'lastName' }];
+
+	var TestDataGrid = React.createClass({
+	  displayName: 'TestDataGrid',
+
+	  render: function render() {
+	    return React.createElement(DataGrid, { idProperty: 'id', dataSource: data, columns: columns });
+	  }
+	});
+
+	exports['default'] = TestDataGrid;
+	module.exports = exports['default'];
+
+/***/ },
+/* 310 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	// class pagerlink extends React.Component {
+	// 	render()
+	// 	{
+	// 		return (
+
+	// 			)
+	// 	}
+	// }
+
+	var Paginator = (function (_React$Component) {
+		_inherits(Paginator, _React$Component);
+
+		function Paginator(props) {
+			_classCallCheck(this, Paginator);
+
+			_get(Object.getPrototypeOf(Paginator.prototype), "constructor", this).call(this, props);
+			this.state = { currentpage: props.currentpage };
+		}
+
+		_createClass(Paginator, [{
+			key: "componentWillMount",
+			value: function componentWillMount() {}
+		}, {
+			key: "render",
+			value: function render() {
+				//const co_code=this.props.co_code;
+				//const uid=this.props.uid;
+
+				var href = "/?ctrl=" + this.props.ctrl + "&pg=" + this.props.pg;
+				return _react2["default"].createElement(
+					"nav",
+					null,
+					_react2["default"].createElement(
+						"ul",
+						{ className: "pagination" },
+						_react2["default"].createElement(
+							"li",
+							null,
+							_react2["default"].createElement(
+								"a",
+								{ href: "#", "aria-label": "Previous",
+									className: this.state.currentpage == 1 ? "active" : ""
+								},
+								_react2["default"].createElement(
+									"span",
+									{ "aria-hidden": "true" },
+									"«"
+								)
+							)
+						),
+						(function (rows, i, len) {
+							while (i <= len) {
+								rows.push(_react2["default"].createElement(
+									"li",
+									null,
+									_react2["default"].createElement(
+										"a",
+										{ href: href + "&pgidx=" + i },
+										i
+									)
+								));
+								i++;
+							}
+							return rows;
+						})([], 1, 8),
+						_react2["default"].createElement(
+							"li",
+							null,
+							_react2["default"].createElement(
+								"a",
+								{ href: "#", "aria-label": "Next" },
+								_react2["default"].createElement(
+									"span",
+									{ "aria-hidden": "true" },
+									"»"
+								)
+							)
+						)
+					)
+				);
+			}
+		}]);
+
+		return Paginator;
+	})(_react2["default"].Component);
+
+	;
+
+	exports["default"] = Paginator;
+	module.exports = exports["default"];
 
 /***/ }
 /******/ ]);

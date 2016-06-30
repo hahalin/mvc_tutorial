@@ -27,7 +27,8 @@ namespace MVCPrj1
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
 
-
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                        "~/Scripts/angular.js"));
             //bundles.Add(new StyleBundle("~/theme-admin/dist/css").Include(
             //    "sb-admin-2.css"));
 

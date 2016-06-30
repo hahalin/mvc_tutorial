@@ -59,19 +59,15 @@ namespace MVCPrj1.Models
         public FlowDbContext()
             : base("con1")
         {
-            //database.setinitializer(
-            //    new migratedatabasetolatestversion<flowdbcontext, mvcprj1.migrations.flowdbcontext.configuration>("con1")
+            //Database.SetInitializer(
+            //    new MigrateDatabaseToLatestVersion <
+            //        FlowDbContext, MVCPrj1.Migrations.Flowdbcontext.configuration>("con1")
             //);
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            
-            
-
-
         }
     }
 }

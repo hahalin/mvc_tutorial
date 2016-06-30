@@ -1,19 +1,25 @@
 ﻿'use strict';
 
-//import React from 'react';
 var React = require('react');
 var ReactDOM =require('react-dom');
-//import React from 'react';
-//require('./index.styl')
-//import Forms from './gdFlowFormList.jsx';
 
-import TestDataGrid from './grid/DataGrid1.js';
-
-//var Hello=require('./hello');
-
+import GdNeedApprove from './grid/GdNeedApprove.js';
+import TestDataGrid from './grid/TestDataGrid.js';
+import Paginator from "./grid/Paginator.jsx"
 
 ReactDOM.render(
-        <TestDataGrid>
-        </TestDataGrid>,
+		<div>
+			<table>
+				<tr>
+					<td>1
+					</td>
+				</tr>
+			</table>
+			<GdNeedApprove>
+			</GdNeedApprove>
+	        <Paginator ctrl='flow' pg="1" currentpage="1">
+	        </Paginator>
+        </div>
+        ,
         document.getElementById('container')
 );

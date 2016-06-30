@@ -22,30 +22,27 @@ namespace MVCPrj1.Models
         }
 
         [Key]
-        [Column(Order = 0)]
+       //Column("co_code",Order = 0)]
         [StringLength(20)]
         public string co_code { get; set; }
 
         [Key]
-        [Column(Order = 1)]
+        //[Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int flow_id { get; set; }
 
-        [Key]
-        [Column(Order = 2)]
+        //[Column(Order = 2)]
         [StringLength(255)]
         public string flow_name { get; set; }
 
         [StringLength(255)]
         public string flow_share_nmae { get; set; }
 
-        [Key]
-        [Column(Order = 3)]
+        //[Column(Order = 3)]
         [StringLength(40)]
         public string designer { get; set; }
 
-        [Key]
-        [Column(Order = 4)]
+        //[Column(Order = 4)]
         public DateTime design_time { get; set; }
 
         [StringLength(40)]
@@ -53,12 +50,11 @@ namespace MVCPrj1.Models
 
         public DateTime? modify_time { get; set; }
 
-        [Key]
-        [Column(Order = 5)]
+        //[Column(Order = 5)]
         [StringLength(20)]
         public string flow_version { get; set; }
 
-        [Column(TypeName = "text")]
+        //[Column(TypeName = "text")]
         public string remark { get; set; }
     }
 }

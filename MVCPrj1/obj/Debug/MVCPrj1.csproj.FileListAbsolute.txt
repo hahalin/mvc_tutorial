@@ -65,8 +65,6 @@ F:\aspnetClass\MVCPrj1\MVCPrj1\bin\zh-Hant\System.Web.WebPages.resources.dll
 F:\aspnetClass\MVCPrj1\MVCPrj1\bin\zh-Hant\System.Web.WebPages.Deployment.resources.dll
 F:\aspnetClass\MVCPrj1\MVCPrj1\bin\zh-Hant\System.Web.WebPages.Razor.resources.dll
 F:\aspnetClass\MVCPrj1\MVCPrj1\bin\zh-Hant\System.Web.Optimization.resources.dll
-F:\aspnetClass\MVCPrj1\MVCPrj1\bin\zh-Hant\EntityFramework.resources.dll
-F:\aspnetClass\MVCPrj1\MVCPrj1\bin\zh-Hant\EntityFramework.SqlServer.resources.dll
 F:\aspnetClass\MVCPrj1\MVCPrj1\bin\zh-Hant\Microsoft.AspNet.Identity.Owin.resources.dll
 F:\aspnetClass\MVCPrj1\MVCPrj1\bin\zh-Hant\Microsoft.Owin.resources.dll
 F:\aspnetClass\MVCPrj1\MVCPrj1\bin\zh-Hant\Microsoft.Owin.Host.SystemWeb.resources.dll
@@ -77,8 +75,11 @@ F:\aspnetClass\MVCPrj1\MVCPrj1\bin\zh-Hant\Microsoft.Owin.Security.Twitter.resou
 F:\aspnetClass\MVCPrj1\MVCPrj1\bin\zh-Hant\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
 F:\aspnetClass\MVCPrj1\MVCPrj1\obj\Debug\MVCPrj1.dll
 F:\aspnetClass\MVCPrj1\MVCPrj1\obj\Debug\MVCPrj1.pdb
-F:\aspnetClass\MVCPrj1\MVCPrj1\obj\Debug\MVCPrj1.csprojResolveAssemblyReference.cache
 F:\aspnetClass\MVCPrj1\MVCPrj1\obj\Debug\MVCPrj1.Migrations.InitialCreate.resources
 F:\aspnetClass\MVCPrj1\MVCPrj1\obj\Debug\MVCPrj1.csproj.GenerateResource.Cache
 F:\aspnetClass\MVCPrj1\MVCPrj1\obj\Debug\MVCPrj1.Migrations.AddedFielintable.resources
 F:\aspnetClass\MVCPrj1\MVCPrj1\obj\Debug\MVCPrj1.Migrations.ChangedtableName.resources
+F:\aspnetClass\MVCPrj1\MVCPrj1\obj\Debug\MVCPrj1.Migrations.up_identity.resources
+F:\aspnetClass\MVCPrj1\MVCPrj1\obj\Debug\MVCPrj1.csprojResolveAssemblyReference.cache
+F:\aspnetClass\MVCPrj1\MVCPrj1\bin\DocumentFormat.OpenXml.dll
+F:\aspnetClass\MVCPrj1\MVCPrj1\bin\zh-Hant\Microsoft.AspNet.Identity.Core.resources.dll

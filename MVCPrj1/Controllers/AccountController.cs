@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
@@ -80,6 +82,9 @@ namespace MVCPrj1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
+            
+            
+
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -87,7 +92,7 @@ namespace MVCPrj1.Controllers
 
             // 這不會計算為帳戶鎖定的登入失敗
             // 若要啟用密碼失敗來觸發帳戶鎖定，請變更為 shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await SignInManager.PasswordSignInAsync(model.user_id , model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -161,11 +166,27 @@ namespace MVCPrj1.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+            //return Content("");
             if (ModelState.IsValid)
             {
+                var finduser = await UserManager.FindByNameAsync(model.user_id);
+                if ( finduser != null)
+                {
+                    IdentityResult regResult = new IdentityResult();
+
+                    List<string> errlist = new List<string>();
+                    errlist.Add("name 重複");
+                    ModelState.AddModelError("duplicated name", "工號重複");
+                    return View(model);
+
+                }
+
                 var user = new ApplicationUser {
-                   usr_id=model.user_id,UserName = model.Email, Email = model.Email 
+                   usr_id=model.user_id,UserName = model.user_id, Email = model.Email 
                 };
+                
+               
+
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

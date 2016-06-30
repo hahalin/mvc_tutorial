@@ -31,7 +31,8 @@
         param.uid = 'T000165';
         //http://blog.darkthread.net/post-2010-04-21-asp-net-json.aspx
         //http://codepaste.net/hjwiet
-        function showSignFormWin(data) {
+        function showSignFormWin(data)
+        {
             var json = JSON.stringifyWcf(data);
             var m2 = JSON.parseWithDate(json);
             $('#fma-tab1 form').empty('');
@@ -51,7 +52,7 @@
             + '  <label>申請日期：</label>' + m2.apply_time.toLocaleString()
             )
             ;
-            //fma-表單本文
+            //tab1 fma-表單本文
             var form_id = data.form_id;
             var co_code = data.co_code;
             var seq_no = data.seq_no;
@@ -200,7 +201,7 @@
                 $('td', row).eq(1).append('<a href=#>' + m2.file_name + '</a>');
             }
             }).fnDraw();
-            //tab4 Flow清單
+            //tab4 task and 箭頭
             var imgFlowRightArrow = '<img src="/Content/flow_images/FlowRightArrow.gif">';
             var imgLT = '<img src="/Content/flow_images/FlowR2Arrow.gif">';
             var imgLB = '<img src="/Content/flow_images/FlowR3Arrow.gif">';
@@ -286,7 +287,7 @@
                     $('#tbFlow tbody tr:eq(2) td:last-child').text('流程結束◎');
                 }
             })
-            //tab4 tbFlowGrid
+            //tab5 tbFlowGrid
             $('#tbFlowGrid th').attr('nowrap', 'nowrap');
             $('#tbFlowGrid th').css('font-size', '9px');
             $('#tbFlowGrid').dataTable().fnDestroy();

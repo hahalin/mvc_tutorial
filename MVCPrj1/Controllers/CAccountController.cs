@@ -68,9 +68,6 @@ namespace MVCPrj1.Controllers
                     //FormsIdentity id=HttpContext.User.
 
                     //FormsAuthenticationTicket ticket = new FormsAuthenticationTicket()
-
-                    
-
                     if (Url.IsLocalUrl(ReturnUrl))
                     {
                         return Redirect(ReturnUrl);
