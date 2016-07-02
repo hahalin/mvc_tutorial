@@ -20,7 +20,7 @@
         // Set the client IP address.
         SecurityManager.ip = SecurityManager.ip || SecurityManager.getIp();
 
-        var deferred = $q.defer();
+        //var deferred = $q.defer();
 
         // Persist key pieces.
         if (SecurityManager.username) {
@@ -61,7 +61,7 @@
 
     getIp: function () {
 
-        return '127.0.0.1';
+        //return '127.0.0.1';
 
         var result = '';
 

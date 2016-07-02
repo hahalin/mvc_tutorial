@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_ClearLayout.cshtml";
+}
+
+
+<div id="status" style="font-size: 18px; font-weight: bold;">Welcome!</div>
+<div>
+    <p>This is a demo of token-based authentication for a C# ASP .NET MVC web service.</p>
+    <p>Try the following steps:</p>
+    <ol>
+        <li>Click 'Search' without logging in. Notice, you'll get an HTTP 401 error (unauthenticated). Check out the Chrome/Firefox network panel in the debugger for proof.</li>
+        <li>Click 'Login'. Notice, a token key is generated in memory, yet never sent to the server. The key is safely on your own PC.</li>
+        <li>Click 'Search'. This time, the API call succeeds and data is displayed.</li>
+        <li>Open the Chrome/Firefox network panel in the debugger. Click 'Search' a few more times. Notice that each time you click 'Search' a new token is generated and sent to the server.</li>
+        <li>Click 'Logout'. The token key is deleted from memory.</li>
+    </ol>
+</div>
+
+<div style="margin: 25px 0 25px 0;">
+    <input id="btnLogin" type="button" value="Login" />
+    <input id="btnLogout" type="button" value="Logout" style="display: none;" />
+</div>
+<div>
+    Search:
+    <input id="txtQuery" type="text" />
+    <input id="btnSearch" type="button" value="Search" />
+</div>
+
+<hr />
+
+<div id="result"></div>
+@section Scripts {
+
+@*<script src="http://crypto-js.googlecode.com/svn/tags/3.0.2/build/rollups/hmac-sha256.js"></script>
+<script src="http://crypto-js.googlecode.com/svn/tags/3.0.2/build/components/enc-base64-min.js"></script>*@
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<script src="~/App/CryptoJS v3.1.2/rollups/hmac-sha256.js"></script>
+<script src="~/App/CryptoJS v3.1.2/components/enc-base64-min.js"></script>
+<script src="~/App/security.js"></script>
+
+<script src="~/App/script.js"></script>
+
+}
